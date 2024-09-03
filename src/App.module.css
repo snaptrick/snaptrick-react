@@ -1,0 +1,96 @@
+/* App.module.css */
+
+/* Global styles for the app */
+body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #eef2f7, #d9e2ec); /* Soft gradient background */
+    overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+/* Container for the main content */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    position: relative;
+    z-index: 10; /* Ensure the container content is above the parallax layers */
+}
+
+/* Parallax container */
+.parallax {
+    position: fixed; /* Fixed so it doesn't move with scrolling */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: -1; /* Ensure it's behind all content */
+}
+
+/* Parallax layers */
+.parallax__layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    transition: transform 0.1s ease-out; /* Smooth transition for parallax effect */
+}
+
+/* Background layer: slower movement */
+.parallax__layer__back {
+    z-index: -2; /* Ensure this is the furthest back */
+    transform: translateZ(-1px) scale(1.5); /* Moves slower than the foreground */
+    background: radial-gradient(circle at 30% 30%, rgba(144, 190, 248, 0.2), transparent); /* Soft circle gradient */
+}
+
+/* Foreground layer: faster movement */
+.parallax__layer__front {
+    z-index: -1; /* Slightly in front of the back layer but behind the content */
+    transform: translateZ(0.5px) scale(1.2); /* Moves faster than the background */
+    background: radial-gradient(circle at 70% 70%, rgba(248, 190, 144, 0.2), transparent); /* Soft circle gradient */
+}
+
+/* Floating curve */
+.curve {
+    position: absolute;
+    width: 150%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    top: -30%;
+    left: -30%;
+}
+
+/* Floating circle */
+.circle {
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+}
+
+/* Styling for visual elements like headers */
+h1, h2, h3 {
+    color: #333;
+    font-weight: bold;
+}
+
+/* Additional styling for buttons and forms if needed */
+.button {
+    padding: 10px 20px;
+    border-radius: 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.button:hover {
+    background-color: #0056b3;
+}

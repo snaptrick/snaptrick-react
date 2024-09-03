@@ -1,0 +1,43 @@
+/* index.css */
+
+/* Import a Google Font for consistent typography across the app */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap');
+
+/* CSS Reset or Normalize styles to provide cross-browser consistency */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    font-family: 'Montserrat', sans-serif;
+    background-color: #f5f7fa; /* Light background color for the entire app */
+    color: #333; /* Default text color */
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Ensure images and media are responsive */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* General link styling */
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+/* Smooth scrolling for better user experience */
+html {
+    scroll-behavior: smooth;
+}

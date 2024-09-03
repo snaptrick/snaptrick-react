@@ -1,0 +1,8 @@
+/* App.css */
+
+/* General container styles */
+.App {
+  text-align: center;
+}
+
+/* Any global overrides or shared styles could go here, but it's usually better to keep these in the respective CSS modules or index.css */

@@ -1,0 +1,29 @@
+/* Welcome.module.css */
+
+.welcome {
+    text-align: left;
+    margin: 80px 0;
+    padding-left: 20px;
+    font-family: 'Montserrat', sans-serif;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    z-index: 3;
+}
+
+.welcome h1 {
+    font-size: 3.5rem;
+    color: #333;
+    font-weight: bold;
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 3px solid #007bff; /* Cursor effect */
+    animation: blink-cursor 0.75s step-end infinite; /* Continuous cursor blinking */
+}
+
+@keyframes blink-cursor {
+    from { border-right-color: #007bff; }
+    to { border-right-color: transparent; }
+}
