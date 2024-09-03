@@ -63,92 +63,77 @@ const App: React.FC = () => {
           },
           {
             title: "Vivino: Food pairings",
-            image:
-              "https://snaptrick.github.io/snaptrick-react/food_pairings_v2 (2).lottie",
+            image: "https://snaptrick.github.io/snaptrick-react/snaptrick.png",
             path: "/projects",
           },
           {
             title: "Vivino: Quick Compare Scanner",
-            image:
-              "https://snaptrick.github.io/snaptrick-react/quick_compare_v1 (1).lottie",
+            image: "https://snaptrick.github.io/snaptrick-react/snaptrick.png",
             path: "/projects",
           },
           {
             title: "Vivino: Wine List Scanner",
-            image:
-              "https://snaptrick.github.io/snaptrick-react/wine_list_v1 (1).lottie",
+            image: "https://snaptrick.github.io/snaptrick-react/snaptrick.png",
             path: "/projects",
           },
           {
             title: "Vivino: Match For You",
-            image:
-              "https://snaptrick.github.io/snaptrick-react/cellar_benefits_v1.lottie",
+            image: "https://snaptrick.github.io/snaptrick-react/snaptrick.png",
             path: "/projects",
           },
           {
             title: "Vivino: Drinking windows",
-            image:
-              "https://snaptrick.github.io/snaptrick-react/drinking_windows_v1%20(2).lottie",
+            image: "https://snaptrick.github.io/snaptrick-react/snaptrick.png",
             path: "/projects",
           },
           {
             title: "Vivino: Places",
-            image:
-              "https://snaptrick.github.io/snaptrick-react/places_v1 (1).lottie",
+            image: "https://snaptrick.github.io/snaptrick-react/snaptrick.png",
             path: "/projects",
           },
           {
             title: "Vivino: Rewin(e)d",
-            image:
-              "https://outvio.com/static/dfbd2425779e07c5c460e88500881486/e30c4/ckyycsi9i00027b9gh6ww46da.jpg",
+            image: "https://snaptrick.github.io/snaptrick-react/snaptrick.png",
             path: "/projects",
           },
           {
             title: "Mashreq",
-            image:
-              "https://outvio.com/static/dfbd2425779e07c5c460e88500881486/e30c4/ckyycsi9i00027b9gh6ww46da.jpg",
+            image: "https://snaptrick.github.io/snaptrick-react/snaptrick.png",
             path: "/findme",
           },
           {
             title: "Careem NOW (UBER acquired)",
-            image:
-              "https://outvio.com/static/dfbd2425779e07c5c460e88500881486/e30c4/ckyycsi9i00027b9gh6ww46da.jpg",
+            image: "https://snaptrick.github.io/snaptrick-react/snaptrick.png",
             path: "/findme",
           },
           {
             title: "Kerzner",
-            image:
-              "https://outvio.com/static/dfbd2425779e07c5c460e88500881486/e30c4/ckyycsi9i00027b9gh6ww46da.jpg",
+            image: "https://snaptrick.github.io/snaptrick-react/snaptrick.png",
             path: "/findme",
           },
           {
             title: "DOT",
-            image:
-              "https://outvio.com/static/dfbd2425779e07c5c460e88500881486/e30c4/ckyycsi9i00027b9gh6ww46da.jpg",
+            image: "https://snaptrick.github.io/snaptrick-react/snaptrick.png",
             path: "/findme",
           },
           {
             title: "Claro",
-            image:
-              "https://outvio.com/static/dfbd2425779e07c5c460e88500881486/e30c4/ckyycsi9i00027b9gh6ww46da.jpg",
+            image: "https://snaptrick.github.io/snaptrick-react/snaptrick.png",
             path: "/findme",
           },
           {
             title: "Kollektiv",
-            image:
-              "https://snaptrick.github.io/snaptrick-react/rotating_logo_lottie.json",
+            image: "https://snaptrick.github.io/snaptrick-react/snaptrick.png",
             path: "/findme",
           },
           {
             title: "DOT - Din Offentlige Trafik",
-            image:
-              "https://outvio.com/static/dfbd2425779e07c5c460e88500881486/e30c4/ckyycsi9i00027b9gh6ww46da.jpg",
+            image: "https://snaptrick.github.io/snaptrick-react/snaptrick.png",
             path: "/findme",
           },
           {
             title: "British American Tobacco",
-            image:
-              "https://outvio.com/static/dfbd2425779e07c5c460e88500881486/e30c4/ckyycsi9i00027b9gh6ww46da.jpg",
+            image: "https://snaptrick.github.io/snaptrick-react/snaptrick.png",
             path: "/findme",
           },
         ]}
@@ -156,7 +141,7 @@ const App: React.FC = () => {
       <ContentSection
         title="Section"
         body="Section body"
-        image="https://outvio.com/static/dfbd2425779e07c5c460e88500881486/e30c4/ckyycsi9i00027b9gh6ww46da.jpg"
+        image="https://snaptrick.github.io/snaptrick-react/snaptrick.png"
       />
       <Tools /> {/* Add the Tools section here */}
       <Contact />
