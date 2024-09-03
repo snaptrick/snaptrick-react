@@ -154,8 +154,8 @@ const App: React.FC = () => {
         ]}
       />
       <ContentSection
-        title="Projects"
-        body="This is section 1"
+        title="Section"
+        body="Section body"
         image="https://outvio.com/static/dfbd2425779e07c5c460e88500881486/e30c4/ckyycsi9i00027b9gh6ww46da.jpg"
       />
       <Tools /> {/* Add the Tools section here */}
