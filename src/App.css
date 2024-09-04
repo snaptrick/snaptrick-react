@@ -1,8 +1,61 @@
 /* App.css */
 
-/* General container styles */
-.App {
-  text-align: center;
+/* Global font settings */
+* {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-/* Any global overrides or shared styles could go here, but it's usually better to keep these in the respective CSS modules or index.css */
+h1, h2, h3 {
+  font-weight: 600;
+}
+
+p, a {
+  font-weight: 300;
+}
+
+/* Button Styling */
+.button {
+  background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+  border: none;
+  border-radius: 50px;
+  padding: 10px 30px;
+  font-size: 1rem;
+  color: white;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.button:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .carousel {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .carousel-item {
+    flex: 0 0 80%;
+    width: 100%;
+  }
+
+  .parallax {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  .header {
+    padding: 10px;
+  }
+}

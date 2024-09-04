@@ -1,60 +1,54 @@
 /* App.module.css */
 
-/* Global styles for the app */
+/* General Layout */
 body {
     font-family: 'Montserrat', sans-serif;
     margin: 0;
     padding: 0;
     background: linear-gradient(135deg, #eef2f7, #d9e2ec); /* Soft gradient background */
-    overflow-x: hidden; /* Prevent horizontal scroll */
+    overflow-x: hidden;
 }
 
-/* Container for the main content */
 .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
     position: relative;
-    z-index: 10; /* Ensure the container content is above the parallax layers */
+    z-index: 10; /* Ensures content is above parallax */
 }
 
-/* Parallax container */
+/* Parallax Styling */
 .parallax {
-    position: fixed; /* Fixed so it doesn't move with scrolling */
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     overflow: hidden;
     pointer-events: none;
-    z-index: -1; /* Ensure it's behind all content */
+    z-index: -1;
 }
 
-/* Parallax layers */
 .parallax__layer {
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    transition: transform 0.1s ease-out; /* Smooth transition for parallax effect */
+    transition: transform 0.1s ease-out;
 }
 
-/* Background layer: slower movement */
 .parallax__layer__back {
-    z-index: -2; /* Ensure this is the furthest back */
-    transform: translateZ(-1px) scale(1.5); /* Moves slower than the foreground */
-    background: radial-gradient(circle at 30% 30%, rgba(144, 190, 248, 0.2), transparent); /* Soft circle gradient */
+    z-index: -2;
+    background: radial-gradient(circle at 30% 30%, rgba(144, 190, 248, 0.2), transparent);
 }
 
-/* Foreground layer: faster movement */
 .parallax__layer__front {
-    z-index: -1; /* Slightly in front of the back layer but behind the content */
-    transform: translateZ(0.5px) scale(1.2); /* Moves faster than the background */
-    background: radial-gradient(circle at 70% 70%, rgba(248, 190, 144, 0.2), transparent); /* Soft circle gradient */
+    z-index: -1;
+    background: radial-gradient(circle at 70% 70%, rgba(248, 190, 144, 0.2), transparent);
 }
 
-/* Floating curve */
+/* Floating Shapes */
 .curve {
     position: absolute;
     width: 150%;
@@ -65,7 +59,6 @@ body {
     left: -30%;
 }
 
-/* Floating circle */
 .circle {
     position: absolute;
     width: 300px;
@@ -74,23 +67,25 @@ body {
     border-radius: 50%;
 }
 
-/* Styling for visual elements like headers */
-h1, h2, h3 {
+/* Section Styling */
+.section {
+    background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+    padding: 50px;
+    border-radius: 10px;
+    margin: 20px auto;
+}
+
+.section h2 {
+    font-size: 2rem;
     color: #333;
-    font-weight: bold;
 }
 
-/* Additional styling for buttons and forms if needed */
-.button {
-    padding: 10px 20px;
-    border-radius: 20px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.3s;
+.section img {
+    max-width: 100%;
+    border-radius: 10px;
 }
 
-.button:hover {
-    background-color: #0056b3;
+.section p {
+    font-size: 1rem;
+    color: #666;
 }
