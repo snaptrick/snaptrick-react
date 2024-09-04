@@ -1,7 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import styles from "./App.module.css";
 import Header from "./components/Header";
-import Welcome from "./components/Welcome";
 import Carousel from "./components/Carousel";
 import ContentSection from "./components/ContentSection";
 import Contact from "./components/Contact";
@@ -66,76 +65,6 @@ const App: React.FC = () => {
             image: "https://snaptrick.github.io/snaptrick-react/snaptrick.png",
             path: "/projects",
           },
-          {
-            title: "Vivino: Quick Compare Scanner",
-            image: "https://snaptrick.github.io/snaptrick-react/snaptrick.png",
-            path: "/projects",
-          },
-          {
-            title: "Vivino: Wine List Scanner",
-            image: "https://snaptrick.github.io/snaptrick-react/snaptrick.png",
-            path: "/projects",
-          },
-          {
-            title: "Vivino: Match For You",
-            image: "https://snaptrick.github.io/snaptrick-react/snaptrick.png",
-            path: "/projects",
-          },
-          {
-            title: "Vivino: Drinking windows",
-            image: "https://snaptrick.github.io/snaptrick-react/snaptrick.png",
-            path: "/projects",
-          },
-          {
-            title: "Vivino: Places",
-            image: "https://snaptrick.github.io/snaptrick-react/snaptrick.png",
-            path: "/projects",
-          },
-          {
-            title: "Vivino: Rewin(e)d",
-            image: "https://snaptrick.github.io/snaptrick-react/snaptrick.png",
-            path: "/projects",
-          },
-          {
-            title: "Mashreq",
-            image: "https://snaptrick.github.io/snaptrick-react/snaptrick.png",
-            path: "/findme",
-          },
-          {
-            title: "Careem NOW (UBER acquired)",
-            image: "https://snaptrick.github.io/snaptrick-react/snaptrick.png",
-            path: "/findme",
-          },
-          {
-            title: "Kerzner",
-            image: "https://snaptrick.github.io/snaptrick-react/snaptrick.png",
-            path: "/findme",
-          },
-          {
-            title: "DOT",
-            image: "https://snaptrick.github.io/snaptrick-react/snaptrick.png",
-            path: "/findme",
-          },
-          {
-            title: "Claro",
-            image: "https://snaptrick.github.io/snaptrick-react/snaptrick.png",
-            path: "/findme",
-          },
-          {
-            title: "Kollektiv",
-            image: "https://snaptrick.github.io/snaptrick-react/snaptrick.png",
-            path: "/findme",
-          },
-          {
-            title: "DOT - Din Offentlige Trafik",
-            image: "https://snaptrick.github.io/snaptrick-react/snaptrick.png",
-            path: "/findme",
-          },
-          {
-            title: "British American Tobacco",
-            image: "https://snaptrick.github.io/snaptrick-react/snaptrick.png",
-            path: "/findme",
-          },
         ]}
       />
       <ContentSection
@@ -153,10 +82,6 @@ const App: React.FC = () => {
             url: "https://www.linkedin.com/in/patrickpetersendenmark/",
           },
           { name: "YouTube", url: "https://www.youtube.com/@PatrickPetersen" },
-          {
-            name: "Spotify",
-            url: "https://open.spotify.com/user/21cgpnjtnrqt7hh7zh3n5dmmq?si=49c1d07cb536424d",
-          },
         ]}
       />
     </div>
