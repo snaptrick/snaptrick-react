@@ -1,14 +1,15 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import styles from "./App.module.css";
-import Header from "./components/Header";
 import Carousel from "./components/Carousel";
 import ContentSection from "./components/ContentSection";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import Tools from "./components/Tools";
+import DarkModeToggle from "./components/DarkModeToggle"; // Add dark mode toggle component
 
 const App: React.FC = () => {
   const parallaxRef = useRef<HTMLDivElement>(null);
+  const [darkMode, setDarkMode] = useState(false);
 
   const handleMouseMove = (event: MouseEvent) => {
     if (parallaxRef.current) {
@@ -31,27 +32,36 @@ const App: React.FC = () => {
   }, []);
 
   return (
-    <div className={styles.container}>
-      <div className={styles.parallax} ref={parallaxRef}>
-        <div
-          className={`${styles.parallax__layer} ${styles.parallax__layer__back}`}
-        >
-          <div className={styles.curve} />
+    <div className={`${styles.container} ${darkMode ? styles.dark : ""}`}>
+      {/* Hero Banner */}
+      <section className={styles.heroBanner}>
+        <div className={styles.heroContent}>
+          <h1 className={styles.heroTitle}>World of Snaptrick...</h1>
+          <button className={styles.adminButton}>Admin</button>
         </div>
-        <div
-          className={`${styles.parallax__layer} ${styles.parallax__layer__front}`}
-        >
-          <div className={styles.circle} style={{ top: "20%", left: "70%" }} />
-        </div>
-      </div>
-      <Header
-        menuItems={[
-          { name: "Home", path: "/" },
-          { name: "Contact", path: "/contact" },
-          { name: "Tools", path: "/tools" },
-        ]}
-      />
-      <Welcome nickNames={["Snaptrick", "Dadtrick", "Hacktrick"]} />
+        <DarkModeToggle darkMode={darkMode} setDarkMode={setDarkMode} />
+      </section>
+
+      {/* Floating Navigation */}
+      <nav className={styles.navBar}>
+        <a href="#about" className={styles.navItem}>
+          About
+        </a>
+        <a href="#projects" className={styles.navItem}>
+          Projects
+        </a>
+        <a href="#tools" className={styles.navItem}>
+          Tools
+        </a>
+        <a href="#world" className={styles.navItem}>
+          World
+        </a>
+        <a href="#connect" className={styles.navItem}>
+          Connect
+        </a>
+      </nav>
+
+      {/* Carousel Section */}
       <Carousel
         items={[
           {
@@ -67,12 +77,13 @@ const App: React.FC = () => {
           },
         ]}
       />
+
       <ContentSection
-        title="Section"
-        body="Section body"
+        title="Projects"
+        body="This is the project section"
         image="https://snaptrick.github.io/snaptrick-react/snaptrick.png"
       />
-      <Tools /> {/* Add the Tools section here */}
+      <Tools />
       <Contact />
       <Footer
         links={[

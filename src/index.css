@@ -1,5 +1,12 @@
 /* index.css */
-
+body.dark {
+    background-color: #1f1f1f;
+    color: #e0e0e0;
+  }
+  
+  a.dark {
+    color: #ff6f61;
+  }
 /* Import a Google Font for consistent typography across the app */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap');
 
