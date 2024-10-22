@@ -19,35 +19,44 @@ db.connect((err) => {
 });
 
 module.exports = async (req, res) => {
+    console.log('Received a request:', req.method);
+
     if (req.method === 'GET') {
-        // Fetch all plates
         const sql = 'SELECT * FROM plates';
+        console.log('Executing SQL:', sql);
+
         db.query(sql, (err, results) => {
             if (err) {
-                return res.status(500).json({ error: 'Server error' });
+                console.error('Error executing SQL query:', err.message);
+                return res.status(500).json({ error: 'Server error', details: err.message });
             }
 
-            // Return empty array if no records are found
             if (results.length === 0) {
+                console.log('No plates found in the database');
                 return res.status(200).json([]);
             }
 
-            // Return the results
+            console.log('Returning plates:', results);
             return res.status(200).json(results);
         });
+
     } else if (req.method === 'POST') {
-        // Add a new plate (example of handling POST requests)
+        console.log('Handling POST request');
         const { name, category, description, cook_time, servings } = req.body;
 
         const sql = `INSERT INTO plates (name, category, description, cook_time, servings) VALUES (?, ?, ?, ?, ?)`;
         const values = [name, category, description, cook_time, servings];
+        console.log('Executing SQL:', sql, 'with values:', values);
 
         db.query(sql, values, (err, result) => {
             if (err) {
-                return res.status(500).json({ error: 'Server error' });
+                console.error('Error inserting plate:', err.message);
+                return res.status(500).json({ error: 'Server error', details: err.message });
             }
+            console.log('Plate added successfully with ID:', result.insertId);
             return res.status(201).json({ message: 'Plate added successfully', plateId: result.insertId });
         });
+
     } else {
         res.setHeader('Allow', ['GET', 'POST']);
         return res.status(405).end(`Method ${req.method} Not Allowed`);
