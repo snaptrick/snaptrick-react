@@ -1,23 +1,18 @@
 const mysql = require('mysql2');
 
-// Create the database connection using environment variables
-const db = mysql.createConnection({
+// Create a connection pool (use pool instead of single connection)
+const pool = mysql.createPool({
     host: process.env.DB_HOST,
     user: process.env.DB_USER,
     password: process.env.DB_PASSWORD,
     database: process.env.DB_NAME,
-    port: process.env.DB_PORT
+    port: process.env.DB_PORT,
+    waitForConnections: true,
+    connectionLimit: 10,  // Adjust based on your need
+    queueLimit: 0         // No limit on queued connection requests
 });
 
-// Connect to the database
-db.connect((err) => {
-    if (err) {
-        console.error('Database connection failed:', err.message);
-        return;
-    }
-    console.log('Connected to the Planned Plates database.');
-});
-
+// Use the pool to handle database queries
 module.exports = async (req, res) => {
     console.log('Received a request:', req.method);
 
@@ -25,7 +20,8 @@ module.exports = async (req, res) => {
         const sql = 'SELECT * FROM plates';
         console.log('Executing SQL:', sql);
 
-        db.query(sql, (err, results) => {
+        // Use the pool to query the database
+        pool.query(sql, (err, results) => {
             if (err) {
                 console.error('Error executing SQL query:', err.message);
                 return res.status(500).json({ error: 'Server error', details: err.message });
@@ -48,7 +44,8 @@ module.exports = async (req, res) => {
         const values = [name, category, description, cook_time, servings];
         console.log('Executing SQL:', sql, 'with values:', values);
 
-        db.query(sql, values, (err, result) => {
+        // Use the pool to insert a new plate
+        pool.query(sql, values, (err, result) => {
             if (err) {
                 console.error('Error inserting plate:', err.message);
                 return res.status(500).json({ error: 'Server error', details: err.message });
