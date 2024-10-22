@@ -6,6 +6,7 @@ import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import Tools from "./components/Tools";
 import DarkModeToggle from "./components/DarkModeToggle"; // Add dark mode toggle component
+import AddPlate from "./components/AddPlate"; // Import the AddPlate component
 
 const App: React.FC = () => {
   const parallaxRef = useRef<HTMLDivElement>(null);
@@ -83,8 +84,17 @@ const App: React.FC = () => {
         body="This is the project section"
         image="https://snaptrick.github.io/snaptrick-react/snaptrick.png"
       />
+
       <Tools />
+
+      {/* AddPlate Component Section */}
+      <section id="add-plate">
+        <h2>Add a New Plate</h2>
+        <AddPlate /> {/* AddPlate Component Rendered Here */}
+      </section>
+
       <Contact />
+
       <Footer
         links={[
           { name: "GitHub", url: "https://github.com/p47r1ckp3t3rs3n" },

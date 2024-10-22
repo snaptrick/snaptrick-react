@@ -1,0 +1,40 @@
+.add-plate-container {
+    margin: 2rem;
+}
+
+.add-plate-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.add-plate-form label {
+    font-weight: bold;
+}
+
+.add-plate-form input,
+.add-plate-form textarea {
+    padding: 0.5rem;
+    font-size: 1rem;
+    width: 100%;
+    max-width: 400px;
+}
+
+button {
+    padding: 0.75rem;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+p {
+    margin-top: 1rem;
+    color: green;
+}
