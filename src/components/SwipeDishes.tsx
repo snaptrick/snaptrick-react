@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import TinderCard from "react-tinder-card"; // Import TinderCard for swipe functionality
-import styles from "./SwipeDishes.module.css"; // We will add custom styles
 
 type Dish = {
   id: number;
@@ -10,9 +9,9 @@ type Dish = {
   image_url: string;
   cook_time: number;
   servings: number;
-  steps: string[];
-  equipment: string[];
-  tags: string[];
+  steps: string[]; // Array of steps
+  equipment: string[]; // Array of equipment
+  tags: string[]; // Array of tags
 };
 
 const SwipeDishes: React.FC = () => {
@@ -25,17 +24,13 @@ const SwipeDishes: React.FC = () => {
       const response = await fetch("/api/plannedplates");
       const data = await response.json();
 
-      console.log("Fetched dishes data:", data); // <-- Add this log
-
+      // Parse the JSON strings for steps, equipment, and tags
       const parsedDishes = data.map((dish: any) => ({
         ...dish,
-        steps: JSON.parse(dish.steps),
-        equipment: JSON.parse(dish.equipment),
-        tags: JSON.parse(dish.tags),
+        steps: dish.steps ? JSON.parse(dish.steps) : [], // Parse steps if not null, else use empty array
+        equipment: dish.equipment ? JSON.parse(dish.equipment) : [], // Parse equipment if not null
+        tags: dish.tags ? JSON.parse(dish.tags) : [], // Parse tags if not null
       }));
-
-      console.log("Parsed dishes:", parsedDishes); // <-- Add this log
-
       setDishes(parsedDishes);
     } catch (error) {
       console.error("Error fetching dishes:", error);
@@ -66,9 +61,9 @@ const SwipeDishes: React.FC = () => {
   // Render a message when 3 dishes are selected
   if (selectedDishes.length === 3) {
     return (
-      <div className={styles.selectedDishesContainer}>
+      <div>
         <h2>You have selected 3 dishes!</h2>
-        <ul className={styles.selectedDishesList}>
+        <ul>
           {selectedDishes.map((dish) => (
             <li key={dish.id}>{dish.name}</li>
           ))}
@@ -79,28 +74,31 @@ const SwipeDishes: React.FC = () => {
 
   return (
     <div>
-      <h2 className={styles.title}>Swipe to Choose Your Dishes</h2>
-      <div className={styles.cardContainer}>
+      <h2>Swipe to Choose Your Dishes</h2>
+      <div className="cardContainer">
         {dishes.map((dish) => (
           <TinderCard
             key={dish.id}
             onSwipe={(dir) => handleSwipe(dir, dish)}
-            className={styles.swipe}
+            className="swipe"
             preventSwipe={["up", "down"]}
           >
-            <div className={styles.dishCard}>
+            <div className="dishCard">
+              {/* Handle missing image URLs with a fallback */}
               <img
                 src={dish.image_url || "https://via.placeholder.com/300"}
                 alt={dish.name}
-                className={styles.dishImage}
+                onError={(e) => {
+                  e.currentTarget.src = "https://via.placeholder.com/300"; // Fallback image
+                }}
               />
-              <h3 className={styles.dishTitle}>{dish.name}</h3>
-              <p className={styles.dishDescription}>{dish.description}</p>
-              <p className={styles.cookTime}>
-                Cook Time: {dish.cook_time} mins
-              </p>
-              <p className={styles.servings}>Servings: {dish.servings}</p>
-              <p className={styles.tags}>Tags: {dish.tags.join(", ")}</p>
+              <h3>{dish.name}</h3>
+              <p>{dish.description}</p>
+              <p>Cook Time: {dish.cook_time} mins</p>
+              <p>Servings: {dish.servings}</p>
+              {/* Display tags and equipment */}
+              <p>Tags: {dish.tags.join(", ")}</p>
+              <p>Equipment: {dish.equipment.join(", ")}</p>
             </div>
           </TinderCard>
         ))}
