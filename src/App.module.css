@@ -1,72 +1,167 @@
 body {
-    font-family: 'Montserrat', sans-serif;
-    margin: 0;
-    padding: 0;
-    background: linear-gradient(135deg, #eef2f7, #d9e2ec);
-    overflow-x: hidden;
-  }
-  
-  .dark {
-    background: #1f1f1f;
-    color: #e0e0e0;
-  }
-  
-  .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-  }
-  
-  /* Hero Banner */
-  .heroBanner {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: linear-gradient(135deg, #ff6f61, #ff9a9e);
-    padding: 20px;
-    color: white;
-    border-radius: 20px;
-    margin-bottom: 20px;
-  }
-  
-  .heroContent {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .heroTitle {
-    font-size: 3rem;
-    font-weight: bold;
-    margin: 0;
-  }
-  
-  .adminButton {
-    background-color: white;
-    color: #ff6f61;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-  }
-  
-  .navBar {
-    display: flex;
-    justify-content: space-evenly;
-    padding: 10px 0;
-    background: white;
-    border-radius: 10px;
-  }
-  
-  .navItem {
-    color: #ff6f61;
-    font-weight: bold;
-    text-decoration: none;
-    padding: 10px 20px;
-    border-radius: 10px;
-  }
-  
-  .navItem:hover {
-    background-color: #ff6f61;
-    color: white;
-  }
-  
+  font-family: 'Montserrat', sans-serif;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(135deg, #eef2f7, #d9e2ec);
+  overflow-x: hidden;
+}
+
+.dark {
+  background: #1f1f1f;
+  color: #e0e0e0;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Hero Banner */
+.heroBanner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(135deg, #ff6f61, #ff9a9e);
+  padding: 20px;
+  color: white;
+  border-radius: 20px;
+  margin-bottom: 20px;
+}
+
+.heroContent {
+  display: flex;
+  flex-direction: column;
+}
+
+.heroTitle {
+  font-size: 3rem;
+  font-weight: bold;
+  margin: 0;
+}
+
+.adminButton {
+  background-color: white;
+  color: #ff6f61;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+/* Navigation Bar */
+.navBar {
+  display: flex;
+  justify-content: space-evenly;
+  padding: 10px 0;
+  background: white;
+  border-radius: 10px;
+  margin-bottom: 20px; /* Add some space between the nav bar and content */
+}
+
+.navItem {
+  color: #ff6f61;
+  font-weight: bold;
+  text-decoration: none;
+  padding: 10px 20px;
+  border-radius: 10px;
+}
+
+.navItem:hover {
+  background-color: #ff6f61;
+  color: white;
+  transition: background-color 0.3s ease; /* Smooth hover effect */
+}
+
+/* Swipeable Card Section */
+.cardContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+  height: 500px;
+  margin: 0 auto;
+  margin-top: 20px;
+}
+
+.dishCard {
+  position: absolute;
+  background-color: white;
+  width: 100%;
+  max-width: 400px;
+  height: 400px;
+  border-radius: 10px;
+  box-shadow: 0px 8px 30px rgba(0, 0, 0, 0.12);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  text-align: center;
+  transition: all 0.3s ease-in-out;
+}
+
+.dishCard img {
+  width: 100%;
+  max-width: 300px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.dishCard h3 {
+  font-size: 1.5rem;
+  color: #ff6f61;
+  margin: 10px 0;
+}
+
+.dishCard p {
+  font-size: 1rem;
+  color: #555;
+}
+
+.swipe {
+  position: absolute;
+  width: 100%;
+}
+
+/* Message for Selected Dishes */
+.selectedDishesMessage {
+  text-align: center;
+  color: #4caf50;
+  font-size: 1.5rem;
+  margin-top: 20px;
+}
+
+.selectedDishesMessage ul {
+  list-style: none;
+  padding: 0;
+}
+
+.selectedDishesMessage li {
+  background: #ff6f61;
+  color: white;
+  padding: 10px;
+  margin: 5px 0;
+  border-radius: 10px;
+  font-size: 1.2rem;
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  margin-top: 40px;
+  padding: 20px 0;
+}
+
+.footer a {
+  color: #ff6f61;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}

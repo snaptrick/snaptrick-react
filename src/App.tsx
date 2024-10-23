@@ -1,12 +1,14 @@
 import React, { useEffect, useRef, useState } from "react";
 import styles from "./App.module.css";
+import { Route, Routes, Link } from "react-router-dom"; // No Router import here
 import Carousel from "./components/Carousel";
 import ContentSection from "./components/ContentSection";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import Tools from "./components/Tools";
-import DarkModeToggle from "./components/DarkModeToggle"; // Add dark mode toggle component
-import AddPlate from "./components/AddPlate"; // Import the AddPlate component
+import DarkModeToggle from "./components/DarkModeToggle";
+import Home from "./pages/Home"; // Home page
+import PlannedPlates from "./pages/PlannedPlates"; // PlannedPlates page
 
 const App: React.FC = () => {
   const parallaxRef = useRef<HTMLDivElement>(null);
@@ -21,7 +23,6 @@ const App: React.FC = () => {
         const speed = (index + 1) * 0.05;
         const x = (window.innerWidth - event.pageX * speed) / 100;
         const y = (window.innerHeight - event.pageY * speed) / 100;
-
         layer.style.transform = `translate(${x}px, ${y}px)`;
       });
     }
@@ -34,66 +35,24 @@ const App: React.FC = () => {
 
   return (
     <div className={`${styles.container} ${darkMode ? styles.dark : ""}`}>
-      {/* Hero Banner */}
-      <section className={styles.heroBanner}>
-        <div className={styles.heroContent}>
-          <h1 className={styles.heroTitle}>World of Snaptrick...</h1>
-          <button className={styles.adminButton}>Admin</button>
-        </div>
-        <DarkModeToggle darkMode={darkMode} setDarkMode={setDarkMode} />
-      </section>
-
-      {/* Floating Navigation */}
+      {/* Navigation Bar */}
       <nav className={styles.navBar}>
-        <a href="#about" className={styles.navItem}>
-          About
-        </a>
-        <a href="#projects" className={styles.navItem}>
-          Projects
-        </a>
-        <a href="#tools" className={styles.navItem}>
-          Tools
-        </a>
-        <a href="#world" className={styles.navItem}>
-          World
-        </a>
-        <a href="#connect" className={styles.navItem}>
-          Connect
-        </a>
+        <Link to="/" className={styles.navItem}>
+          Home
+        </Link>
+        <Link to="/planned-plates" className={styles.navItem}>
+          Planned Plates
+        </Link>
       </nav>
 
-      {/* Carousel Section */}
-      <Carousel
-        items={[
-          {
-            title: "Vivino: Cellar on web",
-            image:
-              "https://snaptrick.github.io/snaptrick-react/cellar_benefits_v1.lottie",
-            path: "/projects",
-          },
-          {
-            title: "Vivino: Food pairings",
-            image: "https://snaptrick.github.io/snaptrick-react/snaptrick.png",
-            path: "/projects",
-          },
-        ]}
-      />
+      {/* Dark Mode Toggle */}
+      <DarkModeToggle darkMode={darkMode} setDarkMode={setDarkMode} />
 
-      <ContentSection
-        title="Projects"
-        body="This is the project section"
-        image="https://snaptrick.github.io/snaptrick-react/snaptrick.png"
-      />
-
-      <Tools />
-
-      {/* AddPlate Component Section */}
-      <section id="add-plate">
-        <h2>Add a New Plate</h2>
-        <AddPlate /> {/* AddPlate Component Rendered Here */}
-      </section>
-
-      <Contact />
+      {/* Routing between Home and Planned Plates pages */}
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/planned-plates" element={<PlannedPlates />} />
+      </Routes>
 
       <Footer
         links={[
@@ -102,7 +61,10 @@ const App: React.FC = () => {
             name: "LinkedIn",
             url: "https://www.linkedin.com/in/patrickpetersendenmark/",
           },
-          { name: "YouTube", url: "https://www.youtube.com/@PatrickPetersen" },
+          {
+            name: "YouTube",
+            url: "https://www.youtube.com/@PatrickPetersen",
+          },
         ]}
       />
     </div>

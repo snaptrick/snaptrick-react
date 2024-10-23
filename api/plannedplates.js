@@ -16,6 +16,22 @@ const pool = mysql.createPool({
 module.exports = async (req, res) => {
     console.log('Received a request:', req.method);
 
+    // Log environment variables for debugging (you may want to remove this later for security reasons)
+    console.log('DB_HOST:', process.env.DB_HOST);
+    console.log('DB_USER:', process.env.DB_USER);
+    console.log('DB_NAME:', process.env.DB_NAME);
+    
+    // Pool connection health check (optional)
+    pool.getConnection((err, connection) => {
+        if (err) {
+            console.error('Error establishing a database connection:', err.message);
+            return res.status(500).json({ error: 'Database connection failed', details: err.message });
+        } else {
+            console.log('Database connection established');
+            connection.release(); // Release the connection back to the pool
+        }
+    });
+
     if (req.method === 'GET') {
         const sql = 'SELECT * FROM plates';
         console.log('Executing SQL:', sql);
@@ -40,11 +56,16 @@ module.exports = async (req, res) => {
         console.log('Handling POST request');
         const { name, category, description, cook_time, servings } = req.body;
 
+        // Validate incoming data
+        if (!name || !category || !description || !cook_time || !servings) {
+            console.error('Missing required fields');
+            return res.status(400).json({ error: 'Missing required fields' });
+        }
+
         const sql = `INSERT INTO plates (name, category, description, cook_time, servings) VALUES (?, ?, ?, ?, ?)`;
         const values = [name, category, description, cook_time, servings];
         console.log('Executing SQL:', sql, 'with values:', values);
 
-        // Use the pool to insert a new plate
         pool.query(sql, values, (err, result) => {
             if (err) {
                 console.error('Error inserting plate:', err.message);
