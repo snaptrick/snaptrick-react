@@ -27,10 +27,11 @@ const SwipeDishes: React.FC = () => {
       // Parse the JSON strings for steps, equipment, and tags
       const parsedDishes = data.map((dish: any) => ({
         ...dish,
-        steps: dish.steps ? JSON.parse(dish.steps) : [], // Parse steps if not null, else use empty array
-        equipment: dish.equipment ? JSON.parse(dish.equipment) : [], // Parse equipment if not null
-        tags: dish.tags ? JSON.parse(dish.tags) : [], // Parse tags if not null
+        steps: dish.steps || [], // No need for JSON.parse, they are already arrays
+        equipment: dish.equipment || [], // No need for JSON.parse
+        tags: dish.tags || [], // No need for JSON.parse
       }));
+
       setDishes(parsedDishes);
     } catch (error) {
       console.error("Error fetching dishes:", error);
